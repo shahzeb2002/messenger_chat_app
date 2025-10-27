@@ -1,6 +1,8 @@
 import 'package:chat_messenger_app/components/my_button.dart';
 import 'package:chat_messenger_app/components/my_text_field.dart';
+import 'package:chat_messenger_app/services/auth/auth_services.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
   final void Function()? onTap;
@@ -13,7 +15,18 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final emailController=TextEditingController();
   final passwordController=TextEditingController();
-  void signIn(){}
+
+  void signIn() async{
+
+    final authService =Provider.of<AuthService>(context,listen: false);
+    try{
+      await authService.signInWithEmailandPassword(emailController.text , passwordController.text);
+    }catch(e){
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
+    }
+
+
+  }
 
   @override
   Widget build(BuildContext context) {
