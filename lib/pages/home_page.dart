@@ -30,9 +30,13 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade300,
+
       appBar: AppBar(
         title: Text(_auth.currentUser!.email.toString()),
         centerTitle: true,
+        backgroundColor: Colors.grey,
+
         actions: [
           //signout
           IconButton(onPressed: signOutt,
