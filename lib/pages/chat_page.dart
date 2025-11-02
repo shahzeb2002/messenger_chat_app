@@ -46,7 +46,6 @@ class _ChatPageState extends State<ChatPage> {
         //     backgroundColor: Colors.white,
         //     child: Icon(Icons.person,color: Colors.grey,),),
         // ),
-        backgroundColor: Colors.grey.shade400,
         titleSpacing: -10,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -94,7 +93,7 @@ class _ChatPageState extends State<ChatPage> {
           ),
           //userinput
           _buildMessageInput(),
-          SizedBox(height: 25,)
+          // SizedBox(height: 5,)
 
 
 
@@ -141,7 +140,7 @@ class _ChatPageState extends State<ChatPage> {
           crossAxisAlignment: (data['senderId']==_firebaseAuth.currentUser!.uid)?CrossAxisAlignment.end:CrossAxisAlignment.start,
            mainAxisAlignment:(data['senderId']==_firebaseAuth.currentUser!.uid)?MainAxisAlignment.end:MainAxisAlignment.start ,
             children: [
-            Text(data['senderEmail']),
+            Text(data['senderEmail'],style: TextStyle(color: Colors.grey.shade600),),
             SizedBox(height: 5,),
             ChatBubble(message: data['message'], bgcolor: bgcolor)
           ],
@@ -155,25 +154,36 @@ class _ChatPageState extends State<ChatPage> {
 
   //build message input
 Widget _buildMessageInput(){
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 25.0),
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.grey.shade400,
+        borderRadius: BorderRadius.only(
+            topRight: Radius.circular(5),
+            topLeft: Radius.circular(5))
+
+      ),
       child: Row(
         children: [
+          SizedBox(width: 8,),
+
+          Icon(Icons.grid_view_rounded),
+          SizedBox(width: 8,),
+          Icon(Icons.camera),
+          SizedBox(width: 8,),
+
+          Icon(Icons.insert_photo_rounded),
+          SizedBox(width: 8,),
+
+          Icon(Icons.mic),
+          SizedBox(width: 8,),
+
           Expanded(child: MyTextField(
               controller: _messageController,
               hintText: 'Enter Message',
               obsecureText: false),),
-          IconButton(onPressed: sendMessage, icon: Icon(Icons.arrow_forward,size: 40,))
+          IconButton(onPressed: sendMessage, icon: Icon(Icons.arrow_forward,size: 30,))
         ],
       ),
     );
-    
-    
 }
-
-
-
-
-
-
 }

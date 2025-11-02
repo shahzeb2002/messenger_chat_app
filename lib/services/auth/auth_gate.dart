@@ -1,3 +1,4 @@
+import 'package:chat_messenger_app/pages/bottom_nav_page.dart';
 import 'package:chat_messenger_app/services/auth/login_or_register.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class AuthGate extends StatelessWidget {
           builder: (context, snapshot) {
             //logged in
             if(snapshot.hasData){
-              return HomePage();
+              return BottomNavPage();
             }else{
               return LoginOrRegister();
             }

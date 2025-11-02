@@ -27,6 +27,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        scaffoldBackgroundColor:        Colors.grey.shade300,
+          appBarTheme: AppBarThemeData(
+              backgroundColor: Colors.grey.shade400,
+
+          ),
+        iconTheme: IconThemeData(color: Colors.grey.shade700)
+      ),
       home:  AuthGate(),
     );
   }
