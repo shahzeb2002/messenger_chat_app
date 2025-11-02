@@ -39,11 +39,56 @@ class _ChatPageState extends State<ChatPage> {
       backgroundColor: Colors.grey.shade300,
 
       appBar: AppBar(
-        backgroundColor: Colors.grey,
-        title: Text(widget.receiveuserEmail),
+        automaticallyImplyLeading: true,
+        // leading: Padding(
+        //   padding: const EdgeInsets.symmetric(vertical: 8.0),
+        //   child: CircleAvatar(
+        //     backgroundColor: Colors.white,
+        //     child: Icon(Icons.person,color: Colors.grey,),),
+        // ),
+        backgroundColor: Colors.grey.shade400,
+        titleSpacing: -10,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            CircleAvatar(
+              backgroundColor: Colors.white,
+              child: Icon(Icons.person,color: Colors.grey,),),
+            SizedBox(width: 5,),
+            Expanded(child: Text(widget.receiveuserEmail,style: TextStyle(color: Colors.grey.shade800),)),
+
+
+
+          ]
+        ),
+        actions: [
+          Icon(Icons.call,size: 28,),
+          SizedBox(width: 10,),
+          Icon(Icons.video_call,size: 35,),
+          SizedBox(width: 10,),
+          Icon(Icons.info,size: 30,),
+          SizedBox(width: 10,)
+        ],
+
       ),
       body: Column(
         children: [
+
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(height: 50,),
+              CircleAvatar(
+                maxRadius: 50,
+                backgroundColor: Colors.grey,child: Icon(Icons.person,size: 50,color: Colors.white,),),
+              SizedBox(height: 10,),
+              Text("you're friends on chatbubble",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.grey.shade600),)
+
+            ],
+          ),
+
+
           //messages
           Expanded(child: _buildMessageList(),
           ),
@@ -86,6 +131,7 @@ class _ChatPageState extends State<ChatPage> {
     Map<String ,dynamic> data =document.data() as Map<String, dynamic>;
     //align message to right if sender is current user,otherwise left
     var alignment=(data['senderId']==_firebaseAuth.currentUser!.uid) ?Alignment.centerRight :Alignment.centerLeft;
+    var bgcolor=(data['senderId']==_firebaseAuth.currentUser!.uid) ?Colors.grey.shade800 :Colors.grey;
 
     return Container(
       alignment: alignment,
@@ -97,7 +143,7 @@ class _ChatPageState extends State<ChatPage> {
             children: [
             Text(data['senderEmail']),
             SizedBox(height: 5,),
-            ChatBubble(message: data['message']),
+            ChatBubble(message: data['message'], bgcolor: bgcolor)
           ],
         ),
       ),
