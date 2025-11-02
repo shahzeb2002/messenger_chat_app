@@ -35,16 +35,12 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.grey.shade300,
 
       appBar: AppBar(
-        leading: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 5),
-          child: CircleAvatar(minRadius: 10,backgroundColor: Colors.white,child: Icon(Icons.person,color: Colors.grey,)),
-        ),
-        title: Text("Hello  ${_auth.currentUser!.email}",style: TextStyle(color: Colors.grey.shade800),),
-        centerTitle: true,
-        backgroundColor: Colors.grey,
+        title: Text("${_auth.currentUser!.email}",style: TextStyle(color: Colors.grey),),
+        centerTitle: false,
+        backgroundColor:Colors.transparent,
+        foregroundColor: Colors.grey,
 
         actions: [
-          // Icon(Icons.camera),
           //signout
           IconButton(onPressed: signOutt,
               icon: Icon(Icons.logout)),

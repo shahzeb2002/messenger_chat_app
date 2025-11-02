@@ -15,13 +15,11 @@ class _DiscoverPageState extends State<DiscoverPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 5),
-          child: CircleAvatar(minRadius: 10,backgroundColor: Colors.white,child: Icon(Icons.person,color: Colors.grey,)),
-        ),
-        title: Text("Discover",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,),),
-        centerTitle: false,
-        backgroundColor: Colors.grey,
+
+        title: Text("D I S C O V E R ",style: TextStyle(color: Colors.grey,),),
+        centerTitle: true,
+        backgroundColor:Colors.transparent,
+        foregroundColor: Colors.grey,
 
 
       ),

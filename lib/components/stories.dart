@@ -38,7 +38,7 @@ class Stories extends StatelessWidget {
                         padding: const EdgeInsets.all(3.0),
                         child: CircleAvatar(backgroundColor: Colors.white,child: Icon(Icons.person,color: Colors.grey,),),
                       ),
-                    )
+                    ),
                   ],
                 ),
               );

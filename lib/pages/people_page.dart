@@ -15,21 +15,11 @@ class _PeoplePageState extends State<PeoplePage> {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(
-        leading: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 5),
-          child: CircleAvatar(minRadius: 10,backgroundColor: Colors.white,child: Icon(Icons.person,color: Colors.grey,)),
-        ),
-        title: Text("People",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
-        centerTitle: false,
-        backgroundColor: Colors.grey,
+        title: Text("P E O P L E S",style: TextStyle(color: Colors.grey),),
+        centerTitle: true,
+        backgroundColor:Colors.transparent,
+        foregroundColor: Colors.grey,
 
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 8.0),
-            child: Icon(Icons.person_add_alt_outlined,size: 30,),
-          ),
-
-        ],
       ),
       body:Column(
         children: [

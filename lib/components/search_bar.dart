@@ -10,11 +10,11 @@ class MySearchBar extends StatelessWidget {
       child: SearchBar(
         elevation: MaterialStateProperty.all(0),
         hintText: "Search",
-        backgroundColor: MaterialStatePropertyAll(Colors.grey),
+        backgroundColor: MaterialStatePropertyAll(Colors.grey.shade400),
         shape: MaterialStatePropertyAll(
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         ),
-        textStyle: MaterialStateProperty.all(TextStyle(color: Colors.white)),
+        textStyle: MaterialStateProperty.all(TextStyle(color: Colors.grey.shade200)),
 
         leading: Icon(Icons.search),
       ),

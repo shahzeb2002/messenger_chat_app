@@ -40,34 +40,24 @@ class _ChatPageState extends State<ChatPage> {
 
       appBar: AppBar(
         automaticallyImplyLeading: true,
-        // leading: Padding(
-        //   padding: const EdgeInsets.symmetric(vertical: 8.0),
-        //   child: CircleAvatar(
-        //     backgroundColor: Colors.white,
-        //     child: Icon(Icons.person,color: Colors.grey,),),
-        // ),
+
         titleSpacing: -10,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            CircleAvatar(
-              backgroundColor: Colors.white,
-              child: Icon(Icons.person,color: Colors.grey,),),
             SizedBox(width: 5,),
-            Expanded(child: Text(widget.receiveuserEmail,style: TextStyle(color: Colors.grey.shade800),)),
-
-
-
+            Expanded(child: Text(widget.receiveuserEmail,style: TextStyle(color: Colors.grey),)),
           ]
         ),
         actions: [
           Icon(Icons.call,size: 28,),
           SizedBox(width: 10,),
-          Icon(Icons.video_call,size: 35,),
+          // Icon(Icons.video_call,size: 35,),
           SizedBox(width: 10,),
-          Icon(Icons.info,size: 30,),
-          SizedBox(width: 10,)
+
         ],
+        backgroundColor:Colors.transparent,
+        foregroundColor: Colors.grey,
 
       ),
       body: Column(
@@ -155,33 +145,41 @@ class _ChatPageState extends State<ChatPage> {
   //build message input
 Widget _buildMessageInput(){
     return Container(
+      padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Colors.grey.shade400,
         borderRadius: BorderRadius.only(
-            topRight: Radius.circular(5),
-            topLeft: Radius.circular(5))
+            topRight: Radius.circular(55),
+            topLeft: Radius.circular(55))
 
       ),
       child: Row(
         children: [
-          SizedBox(width: 8,),
+          SizedBox(width: 10,),
 
           Icon(Icons.grid_view_rounded),
-          SizedBox(width: 8,),
-          Icon(Icons.camera),
-          SizedBox(width: 8,),
-
-          Icon(Icons.insert_photo_rounded),
-          SizedBox(width: 8,),
+          SizedBox(width: 20,),
 
           Icon(Icons.mic),
-          SizedBox(width: 8,),
+          SizedBox(width: 15,),
 
-          Expanded(child: MyTextField(
+          Expanded(
+            child: TextFormField(
               controller: _messageController,
-              hintText: 'Enter Message',
-              obsecureText: false),),
-          IconButton(onPressed: sendMessage, icon: Icon(Icons.arrow_forward,size: 30,))
+              decoration: InputDecoration(
+                suffixIcon: IconButton(onPressed: sendMessage, icon: Icon(Icons.arrow_forward,size: 30,)),
+                hintText: 'Type.......',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(125),
+                  borderSide: BorderSide.none
+
+                ),
+                filled: true,
+                fillColor: Colors.grey.shade300
+              ),
+            ),
+            ),
+          // IconButton(onPressed: sendMessage, icon: Icon(Icons.arrow_forward,size: 30,))
         ],
       ),
     );

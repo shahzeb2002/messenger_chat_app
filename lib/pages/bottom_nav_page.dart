@@ -1,6 +1,7 @@
 import 'package:chat_messenger_app/pages/discover_page.dart';
 import 'package:chat_messenger_app/pages/home_page.dart';
 import 'package:chat_messenger_app/pages/people_page.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavPage extends StatefulWidget {
@@ -32,29 +33,19 @@ class _BottomNavPageState extends State<BottomNavPage> {
 
       body: _screens[_selectedIndex],
 
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
+      bottomNavigationBar: CurvedNavigationBar(
+        index: _selectedIndex,
         onTap: _onItemTapped,
-        backgroundColor: Colors.grey.shade400,
-        selectedItemColor: Colors.grey.shade800,
-        unselectedItemColor: Colors.grey.shade600,
-        showUnselectedLabels: true,
+        backgroundColor: Colors.grey,
+        buttonBackgroundColor: Colors.white,
+        color: Colors.grey.shade300,
+
         items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.chat_bubble_outline_outlined),
-            activeIcon: Icon(Icons.chat_bubble_outlined),
-            label: 'Chat',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.people_outline),
-            activeIcon: Icon(Icons.people),
-            label: 'People',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.find_in_page_outlined),
-            activeIcon: Icon(Icons.find_in_page),
-            label: 'Discover',
-          ),
+           Icon(Icons.chat_bubble_outline_outlined),
+            Icon(Icons.people_outline),
+            Icon(Icons.find_in_page_outlined),
+
+
         ],
       ),
     );
