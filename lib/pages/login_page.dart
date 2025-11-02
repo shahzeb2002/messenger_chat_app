@@ -43,10 +43,16 @@ class _LoginPageState extends State<LoginPage> {
                 //logo
                 Icon(Icons.message,size: 100,),
                 const SizedBox(height: 50,),
-
-
                 //welcome back
-                Text('welocome',style: TextStyle(fontSize: 16),),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Welcome 2 ',style: TextStyle(fontSize: 20),),
+                    Text('ChatBubble',style: TextStyle(fontSize: 20),),
+                  ],
+                ),
+
+
 
                 const SizedBox(height: 25,),
 
@@ -63,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
                 //psss
                 MyTextField(
                     controller: passwordController,
-                    hintText: 'pass',
+                    hintText: 'password',
                     obsecureText: true
                 ),
                 const SizedBox(height: 25,),

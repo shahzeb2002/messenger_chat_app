@@ -1,3 +1,5 @@
+import 'package:chat_messenger_app/components/search_bar.dart';
+import 'package:chat_messenger_app/components/stories.dart';
 import 'package:chat_messenger_app/services/auth/auth_services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -42,15 +44,26 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.grey,
 
         actions: [
-          Icon(Icons.camera),
+          // Icon(Icons.camera),
           //signout
           IconButton(onPressed: signOutt,
               icon: Icon(Icons.logout)),
         ],
       ),
-      body: _buildUserList(),
+      body: Column(
+        children: [
+          MySearchBar(),
+          Stories(),
+          Expanded(child: _buildUserList()),
+        ],
+      ),
     );
   }
+
+
+
+
+
   //building list of user excpet current
 
   Widget _buildUserList(){
@@ -82,6 +95,7 @@ Widget _buildUserListItem(DocumentSnapshot document){
     //displaying all except logged in
   if(_auth.currentUser!.email != data['email']){
     return ListTile(
+      leading: CircleAvatar(backgroundColor: Colors.grey,child: Icon(Icons.person,color: Colors.white,)),
       title: Text(data['email']),
       onTap: () {
         Navigator.push(context, MaterialPageRoute(builder: (context) => ChatPage(receiveuserEmail: data['email'], receiveUserID: data['uid'],),));
@@ -90,7 +104,6 @@ Widget _buildUserListItem(DocumentSnapshot document){
     );
   }else{
     return Container();
-
   }
 
 

@@ -28,7 +28,7 @@ Future<UserCredential> signInWithEmailandPassword(String email,String password) 
     throw Exception(e.code);
   }
 }
-//singn up create a user-------------------------------------
+//sign up create a user-------------------------------------
   Future<UserCredential> signUpWithEmailandPassword(String email, password) async{
   try{
     UserCredential userCredential =await _firebaseAuth.createUserWithEmailAndPassword(

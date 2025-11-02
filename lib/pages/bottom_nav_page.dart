@@ -41,18 +41,18 @@ class _BottomNavPageState extends State<BottomNavPage> {
         showUnselectedLabels: true,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
-            activeIcon: Icon(Icons.home),
-            label: 'Home',
+            icon: Icon(Icons.chat_bubble_outline_outlined),
+            activeIcon: Icon(Icons.chat_bubble_outlined),
+            label: 'Chat',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search_outlined),
-            activeIcon: Icon(Icons.search),
+            icon: Icon(Icons.people_outline),
+            activeIcon: Icon(Icons.people),
             label: 'People',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline),
-            activeIcon: Icon(Icons.person),
+            icon: Icon(Icons.find_in_page_outlined),
+            activeIcon: Icon(Icons.find_in_page),
             label: 'Discover',
           ),
         ],
