@@ -14,7 +14,7 @@ class BottomNavPage extends StatefulWidget {
 class _BottomNavPageState extends State<BottomNavPage> {
   int _selectedIndex = 0;
 
-  // Screens for each tab
+  // Screens for each tabs
   final List<Widget> _screens = const [
     HomePage(),
     PeoplePage(),
